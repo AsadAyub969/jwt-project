@@ -1,7 +1,7 @@
-const { User, Book } = require("../model/user");
+const { User, Book } = require("../../../model/user");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const auth = require("../middleware/auth");
+const auth = require("../../../middleware/auth");
 
 //signup
 const signupUser = async (req, res) => {
@@ -53,7 +53,7 @@ const signupUser = async (req, res) => {
         };
 
         // return new user
-        res.status(201).json({ statusCode: 201, success: true, data: user });
+        res.status(201).json({ statusCode: 201, data: user });
     } catch (err) {
         console.log(err);
     }
@@ -95,7 +95,7 @@ const loginUser = async (req, res) => {
             // user
             res.status(200).json({
                 statusCode: 200,
-                success: true,
+
                 data: user,
             });
         }
@@ -133,7 +133,7 @@ const addNewBook = async (req, res) => {
         });
 
         // return new books
-        res.status(201).json({ statusCode: 201, success: true, data: books });
+        res.status(201).json({ statusCode: 201, data: books });
     } catch (err) {
         console.log(err);
     }
@@ -160,7 +160,7 @@ const getSingleBook = async (req, res) => {
             msg: `No book with id ${bookID}`,
         });
     }
-    res.status(200).json({ statusCode: 200, success: true, data: book });
+    res.status(200).json({ statusCode: 200, data: book });
 };
 
 //Update books
@@ -178,7 +178,7 @@ const updateBook = async (req, res) => {
         });
     }
 
-    res.status(200).json({ statusCode: 200, success: true, data: book });
+    res.status(200).json({ statusCode: 200, data: book });
 };
 
 //Delete books
@@ -198,7 +198,7 @@ const deleteSingleBook = async (req, res) => {
 
         return res.status(200).json({
             statusCode: 200,
-            success: true,
+
             data: book,
         });
     } catch (error) {

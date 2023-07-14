@@ -1,6 +1,6 @@
 require("dotenv").config();
 require("./config/database").connect();
-const books = require("./routes/books");
+const books = require("./src/api/books/books.route");
 const express = require("express");
 
 const app = express();
